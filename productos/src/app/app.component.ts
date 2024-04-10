@@ -8,7 +8,12 @@ import { Producto } from './interfaces/producto';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private productoService: ProductosService) {
+  constructor(private productoService: ProductosService) {    
+  }  
+
+  ngOnInit(){
+    /* alert("Hola") */
+    this.consumirServicioAll();
   }
 
   title = 'productos';
@@ -20,9 +25,10 @@ export class AppComponent {
     })
   }
 
-  consumirServicioEliminar (id : string | undefined) {    
+  consumirServicioEliminar (id : string) { 
+    console.log('Esto es el id -> '+id)   
     this.productoService.eliminarProducto(id).subscribe(result => {
-      this.productos = result;
+      window.location.reload();
     })
   }
 }

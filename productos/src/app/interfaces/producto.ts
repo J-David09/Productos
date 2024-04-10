@@ -1,10 +1,10 @@
 export interface Producto {
-    id?: string;
+    id: string;
     nombre?: string;
     precio?: number;
     cantidad?: number;
     categoria: {
-      id?: number;
+      id: number;
       nombre?: string;
     };
   }

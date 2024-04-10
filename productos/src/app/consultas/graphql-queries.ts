@@ -26,9 +26,7 @@ export const LISTAR_PRODUCTOS_QUERY_ID_ALL = gql`
   `;
 
 export const ELIMINAR_PRODUCTO_MUTATION =  gql`
-  mutation{
-    eliminarProducto {
-      id
-    }
+  mutation eliminarProducto ($id: String!) {
+    eliminarProducto (id: $id) 
   }
 `;

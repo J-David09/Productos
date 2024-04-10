@@ -23,7 +23,7 @@ export class ProductosService {
       );
   }
 
-  eliminarProducto(id: string | undefined) {
+  eliminarProducto(id: string) {
     return this.apollo
       .mutate<any>({
         mutation: ELIMINAR_PRODUCTO_MUTATION,
