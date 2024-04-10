@@ -1,0 +1,42 @@
+<a (click)="consumirServicio()">consumir</a>
+<br>
+<a (click)="consumirServicioAll()">all</a>
+
+<table *ngIf="isConsumirAll">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NOMBRE</th>
+      <th>PRECIO</th>
+      <th>CANTIDAD</th>
+      <th>CATEGORIA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of productos">
+      <td>{{producto.id}}</td>
+      <td>{{producto.nombre}}</td>
+      <td>{{producto.precio}}</td>
+      <td>{{producto.cantidad}}</td>
+      <td>{{producto.categoria?.nombre}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table *ngIf="!isConsumirAll">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NOMBRE</th>
+      <th>PRECIO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of productos">
+      <td>{{producto.id}}</td>
+      <td>{{producto.nombre}}</td>
+      <td>{{producto.precio}}</td>
+    </tr>
+  </tbody>
+</table>
