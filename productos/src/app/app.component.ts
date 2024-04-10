@@ -14,7 +14,7 @@ export class AppComponent {
       nombre:"",
       precio:0.0,
       cantidad:0,
-      categoriaId: 0
+      categoriaId: 0,
   };
   title = 'productos';
   productos : Producto[] = [];

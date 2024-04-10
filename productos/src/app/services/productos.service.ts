@@ -4,6 +4,7 @@ import { AGREGAR_PRODUCTO_MUTATION, ELIMINAR_PRODUCTO_MUTATION, LISTAR_PRODUCTOS
 import { map } from 'rxjs/operators';
 import { Producto } from '../interfaces/producto'
 import { ProductoRequest } from '../interfaces/productoRequest';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -37,16 +38,9 @@ export class ProductosService {
       );
   }
 
-  agregarProducto(productoRequest : ProductoRequest) {
-    return this.apollo
-      .mutate<any>({
-        mutation: AGREGAR_PRODUCTO_MUTATION,
-        variables: { productoRequest },
-      })
-      .pipe(
-        map((result) => {
-          return result.data['guardarProducto'];
-        })
-      );
-  }
+  agregarProducto(producto : ProductoRequest) {
+    return this.apollo.mutate({
+      mutation: AGREGAR_PRODUCTO_MUTATION,
+      variables: { producto }
+    })}
 }

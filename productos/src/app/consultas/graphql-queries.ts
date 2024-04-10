@@ -38,7 +38,9 @@ export const AGREGAR_PRODUCTO_MUTATION =  gql`
       nombre
       precio
       cantidad
-      categoriaId
+      categoria{
+        id
+      }
     }
   }
 `;
