@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { ELIMINAR_PRODUCTO_MUTATION, LISTAR_PRODUCTOS_QUERY_ID_ALL, LISTAR_PRODUCTOS_QUERY_ID_NOMBRE_PRECIO } from '../consultas/graphql-queries';
+import { AGREGAR_PRODUCTO_MUTATION, ELIMINAR_PRODUCTO_MUTATION, LISTAR_PRODUCTOS_QUERY_ID_ALL, LISTAR_PRODUCTOS_QUERY_ID_NOMBRE_PRECIO } from '../consultas/graphql-queries';
 import { map } from 'rxjs/operators';
 import { Producto } from '../interfaces/producto'
+import { ProductoRequest } from '../interfaces/productoRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,19 @@ export class ProductosService {
       .pipe(
         map((result) => {
           return result.data['eliminarProductos'];
+        })
+      );
+  }
+
+  agregarProducto(productoRequest : ProductoRequest) {
+    return this.apollo
+      .mutate<any>({
+        mutation: AGREGAR_PRODUCTO_MUTATION,
+        variables: { productoRequest },
+      })
+      .pipe(
+        map((result) => {
+          return result.data['guardarProducto'];
         })
       );
   }

@@ -1,3 +1,12 @@
+<form>
+  <input type="number" placeholder="Id" [(ngModel)]="producto.id" required name="id">
+  <input type="text" placeholder="Nombre" [(ngModel)]="producto.nombre" required name="nombre">
+  <input type="number" min="100" max="2000" placeholder="Precio" [(ngModel)]="producto.precio" required name="precio">
+  <input type="number" placeholder="Cantidad" [(ngModel)]="producto.cantidad" required name="cantidad">
+  <input type="number" min="1" max="3" placeholder="Categoria" [(ngModel)]="producto.categoriaId" required name="categoriaId">
+  <input (click)="consumirServicioAgregar()" type="submit" value="Añadir">
+</form>
+
 <table>
   <thead>
     <tr>
