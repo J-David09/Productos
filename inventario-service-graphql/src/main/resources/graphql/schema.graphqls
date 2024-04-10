@@ -26,6 +26,7 @@ type Categoria{
 }
 
 input ProductoRequest{
+    id : String,
     nombre : String,
     precio: Float,
     cantidad : Int,

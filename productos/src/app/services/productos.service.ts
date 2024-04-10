@@ -40,7 +40,8 @@ export class ProductosService {
     return this.apollo.mutate({
       mutation: AGREGAR_PRODUCTO_MUTATION,
       variables: { 
-        productoRequest :{        
+        productoRequest :{     
+          id : producto.id,   
           nombre: producto.nombre,
           precio: producto.precio,
           cantidad: producto.cantidad,

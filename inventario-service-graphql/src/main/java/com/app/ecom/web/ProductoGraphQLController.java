@@ -52,7 +52,7 @@ public class ProductoGraphQLController {
     public Producto guardarProducto(@Argument ProductoRequest productoRequest){
         Categoria categoria = categoriaRepository.findById(productoRequest.categoriaId()).orElse(null);
         Producto productoBBDD = new Producto();
-        productoBBDD.setId(String.valueOf(new Random().nextInt((999999 - 111111 + 1) + 111111)));
+        productoBBDD.setId(productoRequest.id());
         productoBBDD.setNombre(productoRequest.nombre());
         productoBBDD.setPrecio(productoRequest.precio());
         productoBBDD.setCantidad(productoRequest.cantidad());
