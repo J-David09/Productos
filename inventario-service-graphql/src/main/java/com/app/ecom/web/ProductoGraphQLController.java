@@ -12,6 +12,7 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 @Controller
@@ -51,7 +52,7 @@ public class ProductoGraphQLController {
     public Producto guardarProducto(@Argument ProductoRequest productoRequest){
         Categoria categoria = categoriaRepository.findById(productoRequest.categoriaId()).orElse(null);
         Producto productoBBDD = new Producto();
-        productoBBDD.setId(UUID.randomUUID().toString());
+        productoBBDD.setId(String.valueOf(new Random().nextInt((999999 - 111111 + 1) + 111111)));
         productoBBDD.setNombre(productoRequest.nombre());
         productoBBDD.setPrecio(productoRequest.precio());
         productoBBDD.setCantidad(productoRequest.cantidad());
