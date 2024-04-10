@@ -12,21 +12,16 @@ export class AppComponent {
   }
 
   title = 'productos';
-
-  isConsumirAll : Boolean = false;
   productos : Producto[] = [];
 
-
-  consumirServicio () {
-    this.isConsumirAll = false;
-    this.productoService.listarProductos().subscribe(result => {
+  consumirServicioAll () {    
+    this.productoService.listarProductosAll().subscribe(result => {
       this.productos = result;
     })
   }
 
-  consumirServicioAll () {
-    this.isConsumirAll = true;
-    this.productoService.listarProductosAll().subscribe(result => {
+  consumirServicioEliminar (id : string | undefined) {    
+    this.productoService.eliminarProducto(id).subscribe(result => {
       this.productos = result;
     })
   }

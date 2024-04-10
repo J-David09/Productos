@@ -11,7 +11,7 @@ export const LISTAR_PRODUCTOS_QUERY_ID_NOMBRE_PRECIO = gql`
 `;
 
 export const LISTAR_PRODUCTOS_QUERY_ID_ALL = gql`
-query {
+  query {
     listarProductos {
       id
       nombre
@@ -24,3 +24,11 @@ query {
     }
   }
   `;
+
+export const ELIMINAR_PRODUCTO_MUTATION =  gql`
+  mutation{
+    eliminarProducto {
+      id
+    }
+  }
+`;
