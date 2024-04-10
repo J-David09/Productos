@@ -3,8 +3,6 @@ import { Apollo } from 'apollo-angular';
 import { AGREGAR_PRODUCTO_MUTATION, ELIMINAR_PRODUCTO_MUTATION, LISTAR_PRODUCTOS_QUERY_ID_ALL, LISTAR_PRODUCTOS_QUERY_ID_NOMBRE_PRECIO } from '../consultas/graphql-queries';
 import { map } from 'rxjs/operators';
 import { Producto } from '../interfaces/producto'
-import { ProductoRequest } from '../interfaces/productoRequest';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -38,9 +36,18 @@ export class ProductosService {
       );
   }
 
-  agregarProducto(producto : ProductoRequest) {
+  agregarProducto(producto : Producto) {
     return this.apollo.mutate({
       mutation: AGREGAR_PRODUCTO_MUTATION,
-      variables: { producto }
-    })}
+      variables: { 
+        productoAdd :{
+          id: producto.id,
+          nombre: producto.nombre,
+          precio: producto.precio,
+          cantidad: producto.cantidad,
+          categoriaId: producto.categoria.id
+        }
+       }
+    });
+  }
 }

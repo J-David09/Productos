@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductosService } from './services/productos.service';
 import { Producto } from './interfaces/producto';
-import { ProductoRequest } from './interfaces/productoRequest';
+import { identifierName } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +9,15 @@ import { ProductoRequest } from './interfaces/productoRequest';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  producto : ProductoRequest = {
+  producto : Producto = {
       id:"0",
       nombre:"",
       precio:0.0,
       cantidad:0,
-      categoriaId: 0,
+      categoria:{
+        id:0,
+        nombre:"",
+      },
   };
   title = 'productos';
   productos : Producto[] = [];

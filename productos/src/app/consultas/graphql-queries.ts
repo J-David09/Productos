@@ -32,15 +32,10 @@ export const ELIMINAR_PRODUCTO_MUTATION =  gql`
 `;
 
 export const AGREGAR_PRODUCTO_MUTATION =  gql`
-  mutation guardarProducto ($producto : ProductoRequest!) {
-    guardarProducto (productoRequest : $producto){
+  mutation guardarProducto ($productoAdd : ProductoRequest!) {
+    guardarProducto (productoRequest : $productoAdd){
       id
       nombre
-      precio
-      cantidad
-      categoria{
-        id
-      }
     }
   }
 `;

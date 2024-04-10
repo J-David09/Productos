@@ -1,31 +1,39 @@
-<form>
-  <input type="number" placeholder="Id" [(ngModel)]="producto.id" required name="id">
-  <input type="text" placeholder="Nombre" [(ngModel)]="producto.nombre" required name="nombre">
-  <input type="number" min="100" max="2000" placeholder="Precio" [(ngModel)]="producto.precio" required name="precio">
-  <input type="number" placeholder="Cantidad" [(ngModel)]="producto.cantidad" required name="cantidad">
-  <input type="number" min="1" max="3" placeholder="Categoria" [(ngModel)]="producto.categoriaId" required name="categoriaId">
-  <input (click)="consumirServicioAgregar()" type="submit" value="Añadir">
+<form class="formulario">
+  <input class="formulario__input" type="number" placeholder="Id" [(ngModel)]="producto.id" required name="id">
+  <input class="formulario__input" type="text" placeholder="Nombre" [(ngModel)]="producto.nombre" required
+    name="nombre">
+  <input class="formulario__input" type="number" min="100" max="2000" placeholder="Precio" [(ngModel)]="producto.precio"
+    required name="precio">
+  <input class="formulario__input" type="number" placeholder="Cantidad" [(ngModel)]="producto.cantidad" required
+    name="cantidad">
+  <input class="formulario__input" type="number" min="1" max="3" placeholder="Categoria"
+    [(ngModel)]="producto.categoria.id" required name="categoria{id}">
+  <input class="formulario__submit" (click)="consumirServicioAgregar()" type="submit" value="Añadir">
 </form>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>NOMBRE</th>
-      <th>PRECIO</th>
-      <th>CANTIDAD</th>
-      <th>CATEGORIA</th>
-      <th>ACCIONES</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let producto of productos">
-      <td>{{producto.id}}</td>
-      <td>{{producto.nombre}}</td>
-      <td>{{producto.precio}}</td>
-      <td>{{producto.cantidad}}</td>
-      <td>{{producto.categoria.nombre}}</td>
-      <td (click)="consumirServicioEliminar(producto.id)">Eliminar</td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>PRECIO</th>
+        <th>CANTIDAD</th>
+        <th>CATEGORIA</th>
+        <th>ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{producto.id}}</td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.precio}}</td>
+        <td>{{producto.cantidad}}</td>
+        <td>{{producto.categoria.nombre}}</td>
+        <td (click)="consumirServicioEliminar(producto.id)">
+          <div class="btnEliminar">Eliminar</div>
+        </td>
+      </tr>
+    <tbody>
+  </table>
+</div>
